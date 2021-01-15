@@ -2,30 +2,72 @@ type User
   @model
   @auth(
     rules: [
-      { allow: owner, ownerField: "owner", operations: [create, read, update] }
+      { allow: groups, groups: ["Admin"] }
+      { allow: owner, ownerField: "owner", operations: [read, update] }
+      { allow: groups, groups: ["User"], operations: [create, read] }
     ]
   ) {
   id: ID!
   name: String
   owner: String!
-  posts: [Game] @connection(keyName: "byBlog", fields: ["id"])
+  posts: [UserGame] @connection(keyName: "gamesByUser", fields: ["id"])
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
+  status: StatusCreated!
+}
+type UserGame
+  @model
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Admin"] }
+      { allow: groups, groups: ["User"], operations: [read, create] }
+    ]
+  )
+  @key(name: "gamesByUser", fields: ["userId", "gameId"])
+  @key(name: "usersByGame", fields: ["gameId", "userId"]) {
+  id: ID!
+  userId: ID!
+  gameId: ID!
+  user: [User] @connection(fields: ["userId"])
+  game: [Game] @connection(fields: ["gameId"])
 }
 
-type Game @model @key(name: "byGame", fields: ["blogID"]) {
+type Game
+  @model
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Admin"] }
+      { allow: groups, groups: ["User"], operations: [read, create] }
+    ]
+  )
+  @key(name: "byCreatedAt", fields: ["status", "createdAt"]) {
   id: ID!
   title: String!
-  Moves: [Move] @connection(keyName: "byPost", fields: ["id"])
+  Moves: [Move] @connection(keyName: "byGame", fields: ["id"])
+  winner: ID
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
+  status: StatusCreated!
 }
 
-type Move @model @key(name: "byPost", fields: ["postID", "content"]) {
+type Move
+  @model(subscriptions: { level: public })
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Admin"] }
+      { allow: groups, groups: ["User"], operations: [read, create] }
+    ]
+  )
+  @key(name: "byGame", fields: ["gameId", "createdAt"]) {
   id: ID!
-  postID: ID!
-  post: Post @connection(fields: ["postID"])
-  content: String!
+  gameId: ID!
+  game: Game @connection(fields: ["gameId"])
+  content: String
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
+  status: StatusCreated!
+}
+
+enum StatusCreated {
+  CREATED
 }
