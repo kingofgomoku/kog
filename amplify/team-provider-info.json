@@ -13,7 +13,8 @@
     },
     "categories": {
       "auth": {
-        "kog": {}
+        "kog": {},
+        "userPoolGroups": {}
       },
       "function": {
         "kogPostConfirmation": {
