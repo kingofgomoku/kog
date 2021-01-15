@@ -71,3 +71,8 @@ type Move
 enum StatusCreated {
   CREATED
 }
+
+enum GameStatus {
+  PENDING
+  ENDED
+}
