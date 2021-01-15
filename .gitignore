@@ -18,6 +18,7 @@ pwa/.DS_Store
 node_modules
 /dist
 
+/src/kog/
 
 # local env files
 .env.local
