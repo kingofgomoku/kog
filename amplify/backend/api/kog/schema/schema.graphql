@@ -10,7 +10,7 @@ type User
   id: ID!
   name: String
   owner: String!
-  posts: [UserGame] @connection(keyName: "gamesByUser", fields: ["id"])
+  games: [UserGame] @connection(keyName: "gamesByUser", fields: ["id"])
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
   status: StatusCreated!
