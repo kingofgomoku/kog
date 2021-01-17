@@ -1,0 +1,68 @@
+{
+    "paths": [
+        {
+            "name": "/move",
+            "lambdaFunction": "InsertMoveFn",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST"
+                ],
+                "userPoolGroups": {
+                    "Admin": [
+                        "/POST"
+                    ],
+                    "User": [
+                        "/POST"
+                    ]
+                }
+            }
+        }
+    ],
+    "resourceName": "InsertMove",
+    "apiName": "InsertMove",
+    "authResourceName": "kog",
+    "functionArns": [
+        {
+            "lambdaFunction": "InsertMoveFn"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-kog-dev-220742-authRole",
+        "unAuthRoleName": "amplify-kog-dev-220742-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "InsertMoveFn",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "auth",
+            "resourceName": "kog",
+            "attributes": [
+                "UserPoolId"
+            ]
+        },
+        {
+            "category": "auth",
+            "resourceName": "userPoolGroups",
+            "attributes": [
+                "AdminGroupRole"
+            ]
+        },
+        {
+            "category": "auth",
+            "resourceName": "userPoolGroups",
+            "attributes": [
+                "UserGroupRole"
+            ]
+        }
+    ],
+    "uuid": "557064e4"
+}
