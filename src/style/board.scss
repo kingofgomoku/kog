@@ -1,0 +1,70 @@
+#gomokuBox {
+  padding: 5px;
+  border: 1px solid #0776a6;
+  background: #194d6d;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+}
+
+.boardBase {
+  background: url("../assets/board/bg-chessboard.jpg") center center
+    no-repeat;
+}
+
+.cell {
+  background: url("../assets/board/bg-square.png") center center no-repeat;
+
+  &.left {
+    background-image: url("../assets/board/bg-square-l.png");
+  }
+
+  &.right {
+    background-image: url("../assets/board/bg-square-r.png");
+  }
+
+  &.top {
+    background-image: url("../assets/board/bg-square-t.png");
+
+    &.left {
+      background-image: url("../assets/board/bg-square-tl.png");
+    }
+
+    &.right {
+      background-image: url("../assets/board/bg-square-tr.png");
+    }
+  }
+  &.bottom {
+    background-image: url("../assets/board/bg-square-b.png");
+
+    &.left {
+      background-image: url("../assets/board/bg-square-bl.png");
+    }
+
+    &.right {
+      background-image: url("../assets/board/bg-square-br.png");
+    }
+  }
+}
+
+.chess {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background-position: center center;
+  background-size: cover;
+  &:hover {
+    box-shadow: 0 0 10px #1e1e1e;
+    -webkit-box-shadow: 0 0 10px #1e1e1e;
+    -moz-box-shadow: 0 0 10px #1e1e1e;
+    border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    transition: all 0.1s;
+  }
+  &.white {
+    background-image: url("../assets/board/chess-w.png");
+  }
+  &.black {
+    background-image: url("../assets/board/chess-b.png");
+  }
+}

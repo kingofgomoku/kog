@@ -11,6 +11,8 @@ import "./registerServiceWorker";
 import "./style/app.scss";
 
 import "./plugins/vue-meta";
+import "./plugins/axios";
+import "./plugins/fontawesome";
 
 Amplify.configure(awsconfig);
 

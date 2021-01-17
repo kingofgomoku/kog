@@ -22,32 +22,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 library.add(faMapMarkerAlt, faUser, faCalendarAlt);
 
-// Tabs
-import {
-  faColumns,
-  faGlobeAmericas,
-  faGlobeAfrica,
-  faGlobeAsia,
-  faCity,
-  faChartArea,
-  faTree,
-  faTruck,
-  faWarehouse,
-  faDotCircle
-} from "@fortawesome/free-solid-svg-icons";
-library.add(
-  faColumns,
-  faGlobeAmericas,
-  faDotCircle,
-  faGlobeAfrica,
-  faGlobeAsia,
-  faCity,
-  faChartArea,
-  faTree,
-  faTruck,
-  faWarehouse
-);
-
 // UI
 import {
   faAngleDown,
@@ -117,39 +91,3 @@ library.add(
 // brands
 import { faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
 library.add(faTwitter, faFacebook);
-
-// scope
-import {
-  facScopeLocal,
-  facScopeNational,
-  facScopeGlobal
-} from "@/helpers/fontawesome/custom";
-library.add(facScopeLocal, facScopeNational, facScopeGlobal);
-
-// category
-import {
-  faBuilding,
-  faFutbol,
-  faMedkit,
-  faMoneyBill,
-  faShieldAlt,
-  faTrafficLight,
-  faUmbrella,
-  faBasketballBall,
-  faHockeyPuck,
-  faFilm,
-  faQuestion
-} from "@fortawesome/free-solid-svg-icons";
-library.add(
-  faBuilding,
-  faFutbol,
-  faMedkit,
-  faMoneyBill,
-  faShieldAlt,
-  faTrafficLight,
-  faUmbrella,
-  faBasketballBall,
-  faHockeyPuck,
-  faFilm,
-  faQuestion
-);

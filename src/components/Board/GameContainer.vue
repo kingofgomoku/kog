@@ -1,10 +1,8 @@
 <template>
-  <div class="p-1 ml-auto mr-auto d-flex">
-    <div class="mr-1"></div>
-    <div class="ml-1 mr-1">
+  <div class="mr-1 d-flex">
+    <div>
       <ChessBox />
     </div>
-    <div class="ml-1"></div>
   </div>
 </template>
 
@@ -15,11 +13,6 @@ export default {
   name: "GameContainer",
   components: {
     ChessBox
-  },
-  data() {
-    return {
-      key: true
-    };
   }
 };
 </script>

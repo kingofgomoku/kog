@@ -2,7 +2,12 @@
   <div class="defaultLayout d-flex flex-column align-items-stretch">
     <Header />
     <div class="container-fluid flex-grow-1 d-flex">
-      <GameContainer />
+      <div class="ml-auto mr-auto d-flex">
+        <GameContainer />
+        <div>
+          <Details />
+        </div>
+      </div>
     </div>
     <Footer />
   </div>
@@ -11,14 +16,16 @@
 <script>
 import Header from "@/components/Header/SiteHeader";
 import Footer from "@/components/Footer/SiteFooter";
-import GameContainer from "@/components/GameContainer";
+import GameContainer from "@/components/Board/GameContainer";
+import Details from "@/components/Details/DetailsContainer";
 
 export default {
   name: "GameBoard",
   components: {
     Header,
     Footer,
-    GameContainer
+    GameContainer,
+    Details
   }
 };
 </script>

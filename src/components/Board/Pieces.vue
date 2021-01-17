@@ -53,28 +53,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.chess {
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  background-position: center center;
-  background-size: cover;
-  &:hover {
-    box-shadow: 0 0 10px #1e1e1e;
-    -webkit-box-shadow: 0 0 10px #1e1e1e;
-    -moz-box-shadow: 0 0 10px #1e1e1e;
-    border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    transition: all 0.1s;
-  }
-  &.white {
-    background-image: url("../../assets/board/chess-w.png");
-  }
-  &.black {
-    background-image: url("../../assets/board/chess-b.png");
-  }
-}
-</style>
-r
+<style lang="scss" scoped></style>
