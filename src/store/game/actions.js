@@ -1,11 +1,11 @@
 /* eslint-disable */
 
 const actions = {
-  gameInitializeGameBoard(context) {
-
+  gameInitializeGameBoard(context, size) {
+    context.commit('gameClearGameBoard', size);
   },
   gameUpdateGameBoard(context, move) {
-    context.commit('gameUpdateGameBoard', move)
+    context.commit('gameUpdateGameBoard', move);
   }
 };
 

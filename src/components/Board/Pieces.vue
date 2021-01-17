@@ -76,22 +76,5 @@ export default {
     background-image: url("../../assets/board/chess-b.png");
   }
 }
-
-// .alertActionButton {
-//   height: 18px;
-//   width: 18px;
-//   border-radius: 100px;
-//   -moz-border-radius: 100px;
-//   -webkit-border-radius: 100px;
-//   border: 2px solid #cccccc;
-// }
-// .alertActionButton:hover {
-//   box-shadow: 0 0 10px #1e1e1e;
-//   -webkit-box-shadow: 0 0 10px #1e1e1e;
-//   -moz-box-shadow: 0 0 10px #1e1e1e;
-//   border-radius: 1rem;
-//   -moz-border-radius: 1rem;
-//   -webkit-border-radius: 1rem;
-//   transition: all 0.2s;
-// }
 </style>
+r

@@ -1,7 +1,11 @@
 <template>
-  <div id="chessBox" class="d-flex ">
-    <div class="boardBase d-block m-auto">
-      <div class="d-flex" v-for="(row, rowIndex) in chessBoard" :key="rowIndex">
+  <div id="gomokuBox" class="d-flex ">
+    <div v-if="returnChessBoard" class="boardBase d-block m-auto">
+      <div
+        class="d-flex"
+        v-for="(row, rowIndex) in gomokuBoard"
+        :key="rowIndex"
+      >
         <div
           class="cell"
           v-for="(details, colIndex) in row"
@@ -32,9 +36,15 @@ export default {
   computed: {
     ...mapGetters({
       playerTurn: "gameReturnPlayerTurn",
-      chessBoard: "gameReturnGameBoard",
+      gomokuBoard: "gameReturnGameBoard",
       boardSize: "gameReturnBoardSize"
-    })
+    }),
+    returnChessBoard() {
+      return !!this.gomokuBoard;
+    }
+  },
+  mounted() {
+    this.$store.dispatch("gameInitializeGameBoard", this.boardSize.size);
   },
   methods: {
     computedClass(row, column) {
@@ -62,9 +72,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#chessBox {
-  width: 500px;
-  height: 500px;
+#gomokuBox {
+  padding: 5px;
   border: 1px solid #0776a6;
   background: #194d6d;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
