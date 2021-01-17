@@ -72,7 +72,7 @@ type Move
         provider: iam
         operations: [create, read, update, delete]
       }
-      { allow: owner, ownerField: "players", operations: [read, create] }
+      { allow: owner, ownerField: "players", operations: [read] }
     ]
   )
   @key(name: "byGame", fields: ["gameId", "createdAt"]) {
