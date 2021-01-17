@@ -1,17 +1,94 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateUser = /* GraphQL */ `
+  subscription OnCreateUser($id: String) {
+    onCreateUser(id: $id) {
+      id
+      name
+      games {
+        items {
+          id
+          userId
+          gameId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      status
+      elo
+    }
+  }
+`;
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser($id: String) {
+    onUpdateUser(id: $id) {
+      id
+      name
+      games {
+        items {
+          id
+          userId
+          gameId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      status
+      elo
+    }
+  }
+`;
+export const onDeleteUser = /* GraphQL */ `
+  subscription OnDeleteUser($id: String) {
+    onDeleteUser(id: $id) {
+      id
+      name
+      games {
+        items {
+          id
+          userId
+          gameId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      status
+      elo
+    }
+  }
+`;
 export const onCreateUserGame = /* GraphQL */ `
   subscription OnCreateUserGame {
     onCreateUserGame {
       id
       userId
       gameId
+      user {
+        items {
+          id
+          name
+          createdAt
+          updatedAt
+          status
+          elo
+        }
+        nextToken
+      }
       game {
         items {
           id
-          title
           winner
+          players
           createdAt
           updatedAt
           status
@@ -20,17 +97,6 @@ export const onCreateUserGame = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      user {
-        items {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-          status
-        }
-        nextToken
-      }
     }
   }
 `;
@@ -40,11 +106,22 @@ export const onUpdateUserGame = /* GraphQL */ `
       id
       userId
       gameId
+      user {
+        items {
+          id
+          name
+          createdAt
+          updatedAt
+          status
+          elo
+        }
+        nextToken
+      }
       game {
         items {
           id
-          title
           winner
+          players
           createdAt
           updatedAt
           status
@@ -53,17 +130,6 @@ export const onUpdateUserGame = /* GraphQL */ `
       }
       createdAt
       updatedAt
-      user {
-        items {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-          status
-        }
-        nextToken
-      }
     }
   }
 `;
@@ -73,41 +139,47 @@ export const onDeleteUserGame = /* GraphQL */ `
       id
       userId
       gameId
-      game {
-        items {
-          id
-          title
-          winner
-          createdAt
-          updatedAt
-          status
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
       user {
         items {
           id
           name
-          owner
+          createdAt
+          updatedAt
+          status
+          elo
+        }
+        nextToken
+      }
+      game {
+        items {
+          id
+          winner
+          players
           createdAt
           updatedAt
           status
         }
         nextToken
       }
+      createdAt
+      updatedAt
     }
   }
 `;
 export const onCreateGame = /* GraphQL */ `
-  subscription OnCreateGame {
-    onCreateGame {
+  subscription OnCreateGame($players: String) {
+    onCreateGame(players: $players) {
       id
-      title
+      winner
+      players
+      createdAt
+      updatedAt
+      status
       Moves {
         items {
           id
+          authorId
+          players
           gameId
           content
           createdAt
@@ -116,21 +188,23 @@ export const onCreateGame = /* GraphQL */ `
         }
         nextToken
       }
-      winner
-      createdAt
-      updatedAt
-      status
     }
   }
 `;
 export const onUpdateGame = /* GraphQL */ `
-  subscription OnUpdateGame {
-    onUpdateGame {
+  subscription OnUpdateGame($players: String) {
+    onUpdateGame(players: $players) {
       id
-      title
+      winner
+      players
+      createdAt
+      updatedAt
+      status
       Moves {
         items {
           id
+          authorId
+          players
           gameId
           content
           createdAt
@@ -139,21 +213,23 @@ export const onUpdateGame = /* GraphQL */ `
         }
         nextToken
       }
-      winner
-      createdAt
-      updatedAt
-      status
     }
   }
 `;
 export const onDeleteGame = /* GraphQL */ `
-  subscription OnDeleteGame {
-    onDeleteGame {
+  subscription OnDeleteGame($players: String) {
+    onDeleteGame(players: $players) {
       id
-      title
+      winner
+      players
+      createdAt
+      updatedAt
+      status
       Moves {
         items {
           id
+          authorId
+          players
           gameId
           content
           createdAt
@@ -162,28 +238,26 @@ export const onDeleteGame = /* GraphQL */ `
         }
         nextToken
       }
-      winner
-      createdAt
-      updatedAt
-      status
     }
   }
 `;
 export const onCreateMove = /* GraphQL */ `
-  subscription OnCreateMove {
-    onCreateMove {
+  subscription OnCreateMove($players: String) {
+    onCreateMove(players: $players) {
       id
+      authorId
+      players
       gameId
       game {
         id
-        title
-        Moves {
-          nextToken
-        }
         winner
+        players
         createdAt
         updatedAt
         status
+        Moves {
+          nextToken
+        }
       }
       content
       createdAt
@@ -193,20 +267,22 @@ export const onCreateMove = /* GraphQL */ `
   }
 `;
 export const onUpdateMove = /* GraphQL */ `
-  subscription OnUpdateMove {
-    onUpdateMove {
+  subscription OnUpdateMove($players: String) {
+    onUpdateMove(players: $players) {
       id
+      authorId
+      players
       gameId
       game {
         id
-        title
-        Moves {
-          nextToken
-        }
         winner
+        players
         createdAt
         updatedAt
         status
+        Moves {
+          nextToken
+        }
       }
       content
       createdAt
@@ -216,88 +292,24 @@ export const onUpdateMove = /* GraphQL */ `
   }
 `;
 export const onDeleteMove = /* GraphQL */ `
-  subscription OnDeleteMove {
-    onDeleteMove {
+  subscription OnDeleteMove($players: String) {
+    onDeleteMove(players: $players) {
       id
+      authorId
+      players
       gameId
       game {
         id
-        title
-        Moves {
-          nextToken
-        }
         winner
+        players
         createdAt
         updatedAt
         status
+        Moves {
+          nextToken
+        }
       }
       content
-      createdAt
-      updatedAt
-      status
-    }
-  }
-`;
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser($owner: String) {
-    onCreateUser(owner: $owner) {
-      id
-      name
-      owner
-      games {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      status
-    }
-  }
-`;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser($owner: String) {
-    onUpdateUser(owner: $owner) {
-      id
-      name
-      owner
-      games {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      status
-    }
-  }
-`;
-export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser($owner: String) {
-    onDeleteUser(owner: $owner) {
-      id
-      name
-      owner
-      games {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
       createdAt
       updatedAt
       status

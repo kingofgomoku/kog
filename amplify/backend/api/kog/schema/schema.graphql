@@ -3,19 +3,25 @@ type User
   @auth(
     rules: [
       { allow: groups, groups: ["Admin"] }
-      { allow: owner, ownerField: "owner", operations: [read, update] }
+      { allow: owner, ownerField: "id", operations: [read, create, update] }
       { allow: groups, groups: ["User"], operations: [read] }
-      {
-        allow: private
-        provider: iam
-        operations: [create, read, update, delete]
-      }
     ]
   ) {
   id: ID!
   name: String
-  owner: String!
   games: [UserGame] @connection(keyName: "gamesByUser", fields: ["id"])
+  elo: Int
+    @auth(
+      rules: [
+        { allow: groups, groups: ["Admin"] }
+        { allow: groups, groups: ["User"], operations: [read] }
+        {
+          allow: private
+          provider: iam
+          operations: [create, read, update, delete]
+        }
+      ]
+    )
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
   status: StatusCreated!
@@ -42,29 +48,37 @@ type Game
   @auth(
     rules: [
       { allow: groups, groups: ["Admin"] }
-      { allow: groups, groups: ["User"], operations: [read, create] }
+      # { allow: groups, groups: ["User"], operations: [create] }
+      { allow: owner, ownerField: "players" }
     ]
   )
   @key(name: "byCreatedAt", fields: ["status", "createdAt"]) {
   id: ID!
-  title: String!
   Moves: [Move] @connection(keyName: "byGame", fields: ["id"])
   winner: ID
+  players: [String!]!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
   status: StatusCreated!
 }
 
 type Move
-  @model(subscriptions: { level: public })
+  @model
   @auth(
     rules: [
       { allow: groups, groups: ["Admin"] }
-      { allow: groups, groups: ["User"], operations: [read, create] }
+      {
+        allow: private
+        provider: iam
+        operations: [create, read, update, delete]
+      }
+      { allow: owner, ownerField: "players", operations: [read, create] }
     ]
   )
   @key(name: "byGame", fields: ["gameId", "createdAt"]) {
   id: ID!
+  authorId: String!
+  players: [String!]!
   gameId: ID!
   game: Game @connection(fields: ["gameId"])
   content: String
