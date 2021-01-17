@@ -1,5 +1,5 @@
 <template>
-  <div class="color p-1 ml-auto mr-auto d-flex">
+  <div class="p-1 ml-auto mr-auto d-flex">
     <div class="mr-1"></div>
     <div class="ml-1 mr-1">
       <ChessBox />
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ChessBox from "@/components/test/ChessBox";
+import ChessBox from "@/components/Board/ChessBoard";
 
 export default {
   name: "GameContainer",
@@ -24,7 +24,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.color {
-}
-</style>
+<style lang="scss" scoped></style>

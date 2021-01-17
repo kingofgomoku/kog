@@ -1,14 +1,19 @@
 <template>
   <div id="chessBox" class="d-flex ">
-    <div class="d-block m-auto">
-      <div class="d-flex" v-for="row in rows" :key="row">
+    <div class="boardBase d-block m-auto">
+      <div class="d-flex" v-for="(row, rowIndex) in chessBoard" :key="rowIndex">
         <div
           class="cell"
-          v-for="column in columns"
-          :class="computedClass(row, column)"
-          :key="column"
+          v-for="(details, colIndex) in row"
+          :class="computedClass(rowIndex, colIndex)"
+          :key="colIndex"
         >
-          <div class="chess" @click="setChess(row, column, 'black')"></div>
+          <Pieces
+            :details="details"
+            :playerturn="playerTurn"
+            :row="rowIndex"
+            :column="colIndex"
+          />
         </div>
       </div>
     </div>
@@ -16,36 +21,41 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import Pieces from "@/components/Board/Pieces";
+
 export default {
   name: "chessBox",
-  data() {
-    return {
-      rows: 15,
-      columns: 15
-    };
+  components: {
+    Pieces
+  },
+  computed: {
+    ...mapGetters({
+      playerTurn: "gameReturnPlayerTurn",
+      chessBoard: "gameReturnGameBoard",
+      boardSize: "gameReturnBoardSize"
+    })
   },
   methods: {
     computedClass(row, column) {
       let className = "";
-      if (row === 1) {
+      if (row === 0) {
         className += "top ";
-      } else if (row === this.rows) {
+      } else if (row === this.boardSize.rows - 1) {
         className += "bottom ";
       }
-      if (column === 1) {
+      if (column === 0) {
         className += "left";
-      } else if (column === this.columns) {
+      } else if (column === this.boardSize.columns - 1) {
         className += "right";
       }
       return className;
     },
-    setChess(row, column, type) {
-      console.log("ONCLICK", row, column, type);
-      // this.$store.commit("SET_CHESS", {
-      //   row,
-      //   column,
-      //   type
-      // });
+    computePlayedState(row, column) {
+      return {
+        row,
+        column
+      };
     }
   }
 };
@@ -56,11 +66,14 @@ export default {
   width: 500px;
   height: 500px;
   border: 1px solid #0776a6;
-  // border: 1px solid #0776a6;
-  background: #fff;
-  // background: #194d6d;
+  background: #194d6d;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
   border-radius: 6px;
+}
+
+.boardBase {
+  background: url("../../assets/board/bg-chessboard.jpg") center center
+    no-repeat;
 }
 
 .cell {
@@ -95,23 +108,6 @@ export default {
     &.right {
       background-image: url("../../assets/board/bg-square-br.png");
     }
-  }
-}
-
-.chess {
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  background-position: center center;
-  background-size: cover;
-  &:hover {
-    background-image: url("../../assets/board/chess-b.png");
-  }
-  &.white {
-    background-image: url("../../assets/board/chess-w.png");
-  }
-  &.black {
-    background-image: url("../../assets/board/chess-b.png");
   }
 }
 </style>
