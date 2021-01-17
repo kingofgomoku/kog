@@ -4,7 +4,12 @@ type User
     rules: [
       { allow: groups, groups: ["Admin"] }
       { allow: owner, ownerField: "owner", operations: [read, update] }
-      { allow: groups, groups: ["User"], operations: [create, read] }
+      { allow: groups, groups: ["User"], operations: [read] }
+      {
+        allow: private
+        provider: iam
+        operations: [create, read, update, delete]
+      }
     ]
   ) {
   id: ID!

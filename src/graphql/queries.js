@@ -1,67 +1,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getUser = /* GraphQL */ `
-  query GetUser($id: ID!) {
-    getUser(id: $id) {
-      id
-      name
-      owner
-      posts {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      status
-    }
-  }
-`;
-export const listUsers = /* GraphQL */ `
-  query ListUsers(
-    $filter: ModelUserFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        owner
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        status
-      }
-      nextToken
-    }
-  }
-`;
 export const getUserGame = /* GraphQL */ `
   query GetUserGame($id: ID!) {
     getUserGame(id: $id) {
       id
       userId
       gameId
-      user {
-        items {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-          status
-        }
-        nextToken
-      }
       game {
         items {
           id
@@ -75,6 +20,17 @@ export const getUserGame = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      user {
+        items {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+          status
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -89,14 +45,14 @@ export const listUserGames = /* GraphQL */ `
         id
         userId
         gameId
-        user {
-          nextToken
-        }
         game {
           nextToken
         }
         createdAt
         updatedAt
+        user {
+          nextToken
+        }
       }
       nextToken
     }
@@ -189,6 +145,50 @@ export const listMoves = /* GraphQL */ `
           status
         }
         content
+        createdAt
+        updatedAt
+        status
+      }
+      nextToken
+    }
+  }
+`;
+export const getUser = /* GraphQL */ `
+  query GetUser($id: ID!) {
+    getUser(id: $id) {
+      id
+      name
+      owner
+      games {
+        items {
+          id
+          userId
+          gameId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      status
+    }
+  }
+`;
+export const listUsers = /* GraphQL */ `
+  query ListUsers(
+    $filter: ModelUserFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        owner
+        games {
+          nextToken
+        }
         createdAt
         updatedAt
         status

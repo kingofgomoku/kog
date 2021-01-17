@@ -1,89 +1,12 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser($owner: String) {
-    onCreateUser(owner: $owner) {
-      id
-      name
-      owner
-      posts {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      status
-    }
-  }
-`;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser($owner: String) {
-    onUpdateUser(owner: $owner) {
-      id
-      name
-      owner
-      posts {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      status
-    }
-  }
-`;
-export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser($owner: String) {
-    onDeleteUser(owner: $owner) {
-      id
-      name
-      owner
-      posts {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      status
-    }
-  }
-`;
 export const onCreateUserGame = /* GraphQL */ `
   subscription OnCreateUserGame {
     onCreateUserGame {
       id
       userId
       gameId
-      user {
-        items {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-          status
-        }
-        nextToken
-      }
       game {
         items {
           id
@@ -97,6 +20,17 @@ export const onCreateUserGame = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      user {
+        items {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+          status
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -106,17 +40,6 @@ export const onUpdateUserGame = /* GraphQL */ `
       id
       userId
       gameId
-      user {
-        items {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-          status
-        }
-        nextToken
-      }
       game {
         items {
           id
@@ -130,6 +53,17 @@ export const onUpdateUserGame = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      user {
+        items {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+          status
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -139,17 +73,6 @@ export const onDeleteUserGame = /* GraphQL */ `
       id
       userId
       gameId
-      user {
-        items {
-          id
-          name
-          owner
-          createdAt
-          updatedAt
-          status
-        }
-        nextToken
-      }
       game {
         items {
           id
@@ -163,6 +86,17 @@ export const onDeleteUserGame = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      user {
+        items {
+          id
+          name
+          owner
+          createdAt
+          updatedAt
+          status
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -298,6 +232,72 @@ export const onDeleteMove = /* GraphQL */ `
         status
       }
       content
+      createdAt
+      updatedAt
+      status
+    }
+  }
+`;
+export const onCreateUser = /* GraphQL */ `
+  subscription OnCreateUser($owner: String) {
+    onCreateUser(owner: $owner) {
+      id
+      name
+      owner
+      games {
+        items {
+          id
+          userId
+          gameId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      status
+    }
+  }
+`;
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser($owner: String) {
+    onUpdateUser(owner: $owner) {
+      id
+      name
+      owner
+      games {
+        items {
+          id
+          userId
+          gameId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      status
+    }
+  }
+`;
+export const onDeleteUser = /* GraphQL */ `
+  subscription OnDeleteUser($owner: String) {
+    onDeleteUser(owner: $owner) {
+      id
+      name
+      owner
+      games {
+        items {
+          id
+          userId
+          gameId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       status
