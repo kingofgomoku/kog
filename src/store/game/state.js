@@ -3,4 +3,9 @@ const state = {
   turn: ""
 };
 
-export default state;
+const getters = {};
+
+export default {
+  state,
+  getters
+};
