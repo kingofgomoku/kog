@@ -1,0 +1,47 @@
+mutation createUser {
+  createUser(input: { id: "player1", status: CREATED }) {
+    id
+  }
+}
+
+mutation createUser {
+  createUser(input: { id: "player2", status: CREATED }) {
+    id
+  }
+}
+
+mutation createGame {
+  createGame(input: { players: ["player1", "player2"], status: CREATED }) {
+    id
+  }
+}
+
+query listgame {
+  listGames {
+    items {
+      id
+    }
+  }
+}
+
+mutation CreateMove {
+  createMove(
+    input: {
+      authorId: "player2"
+      gameId: "898a0f5d-eae0-4bba-a08a-4fda95d016d2"
+      status: CREATED
+      content: "move1"
+      players: ["player1", "player2"]
+    }
+  ) {
+    id
+  }
+}
+
+subscription abc {
+  onCreateMove(players: "player1") {
+    id
+    gameId
+    content
+  }
+}

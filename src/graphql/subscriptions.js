@@ -2,12 +2,11 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser($owner: String) {
-    onCreateUser(owner: $owner) {
+  subscription OnCreateUser($id: String) {
+    onCreateUser(id: $id) {
       id
       name
-      owner
-      posts {
+      games {
         items {
           id
           userId
@@ -20,16 +19,16 @@ export const onCreateUser = /* GraphQL */ `
       createdAt
       updatedAt
       status
+      elo
     }
   }
 `;
 export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser($owner: String) {
-    onUpdateUser(owner: $owner) {
+  subscription OnUpdateUser($id: String) {
+    onUpdateUser(id: $id) {
       id
       name
-      owner
-      posts {
+      games {
         items {
           id
           userId
@@ -42,16 +41,16 @@ export const onUpdateUser = /* GraphQL */ `
       createdAt
       updatedAt
       status
+      elo
     }
   }
 `;
 export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser($owner: String) {
-    onDeleteUser(owner: $owner) {
+  subscription OnDeleteUser($id: String) {
+    onDeleteUser(id: $id) {
       id
       name
-      owner
-      posts {
+      games {
         items {
           id
           userId
@@ -64,6 +63,7 @@ export const onDeleteUser = /* GraphQL */ `
       createdAt
       updatedAt
       status
+      elo
     }
   }
 `;
@@ -77,18 +77,18 @@ export const onCreateUserGame = /* GraphQL */ `
         items {
           id
           name
-          owner
           createdAt
           updatedAt
           status
+          elo
         }
         nextToken
       }
       game {
         items {
           id
-          title
           winner
+          players
           createdAt
           updatedAt
           status
@@ -110,18 +110,18 @@ export const onUpdateUserGame = /* GraphQL */ `
         items {
           id
           name
-          owner
           createdAt
           updatedAt
           status
+          elo
         }
         nextToken
       }
       game {
         items {
           id
-          title
           winner
+          players
           createdAt
           updatedAt
           status
@@ -143,18 +143,18 @@ export const onDeleteUserGame = /* GraphQL */ `
         items {
           id
           name
-          owner
           createdAt
           updatedAt
           status
+          elo
         }
         nextToken
       }
       game {
         items {
           id
-          title
           winner
+          players
           createdAt
           updatedAt
           status
@@ -167,13 +167,19 @@ export const onDeleteUserGame = /* GraphQL */ `
   }
 `;
 export const onCreateGame = /* GraphQL */ `
-  subscription OnCreateGame {
-    onCreateGame {
+  subscription OnCreateGame($players: String) {
+    onCreateGame(players: $players) {
       id
-      title
+      winner
+      players
+      createdAt
+      updatedAt
+      status
       Moves {
         items {
           id
+          authorId
+          players
           gameId
           content
           createdAt
@@ -182,21 +188,23 @@ export const onCreateGame = /* GraphQL */ `
         }
         nextToken
       }
-      winner
-      createdAt
-      updatedAt
-      status
     }
   }
 `;
 export const onUpdateGame = /* GraphQL */ `
-  subscription OnUpdateGame {
-    onUpdateGame {
+  subscription OnUpdateGame($players: String) {
+    onUpdateGame(players: $players) {
       id
-      title
+      winner
+      players
+      createdAt
+      updatedAt
+      status
       Moves {
         items {
           id
+          authorId
+          players
           gameId
           content
           createdAt
@@ -205,21 +213,23 @@ export const onUpdateGame = /* GraphQL */ `
         }
         nextToken
       }
-      winner
-      createdAt
-      updatedAt
-      status
     }
   }
 `;
 export const onDeleteGame = /* GraphQL */ `
-  subscription OnDeleteGame {
-    onDeleteGame {
+  subscription OnDeleteGame($players: String) {
+    onDeleteGame(players: $players) {
       id
-      title
+      winner
+      players
+      createdAt
+      updatedAt
+      status
       Moves {
         items {
           id
+          authorId
+          players
           gameId
           content
           createdAt
@@ -228,28 +238,26 @@ export const onDeleteGame = /* GraphQL */ `
         }
         nextToken
       }
-      winner
-      createdAt
-      updatedAt
-      status
     }
   }
 `;
 export const onCreateMove = /* GraphQL */ `
-  subscription OnCreateMove {
-    onCreateMove {
+  subscription OnCreateMove($players: String) {
+    onCreateMove(players: $players) {
       id
+      authorId
+      players
       gameId
       game {
         id
-        title
-        Moves {
-          nextToken
-        }
         winner
+        players
         createdAt
         updatedAt
         status
+        Moves {
+          nextToken
+        }
       }
       content
       createdAt
@@ -259,20 +267,22 @@ export const onCreateMove = /* GraphQL */ `
   }
 `;
 export const onUpdateMove = /* GraphQL */ `
-  subscription OnUpdateMove {
-    onUpdateMove {
+  subscription OnUpdateMove($players: String) {
+    onUpdateMove(players: $players) {
       id
+      authorId
+      players
       gameId
       game {
         id
-        title
-        Moves {
-          nextToken
-        }
         winner
+        players
         createdAt
         updatedAt
         status
+        Moves {
+          nextToken
+        }
       }
       content
       createdAt
@@ -282,20 +292,22 @@ export const onUpdateMove = /* GraphQL */ `
   }
 `;
 export const onDeleteMove = /* GraphQL */ `
-  subscription OnDeleteMove {
-    onDeleteMove {
+  subscription OnDeleteMove($players: String) {
+    onDeleteMove(players: $players) {
       id
+      authorId
+      players
       gameId
       game {
         id
-        title
-        Moves {
-          nextToken
-        }
         winner
+        players
         createdAt
         updatedAt
         status
+        Moves {
+          nextToken
+        }
       }
       content
       createdAt

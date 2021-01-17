@@ -1,81 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createUser = /* GraphQL */ `
-  mutation CreateUser(
-    $input: CreateUserInput!
-    $condition: ModelUserConditionInput
-  ) {
-    createUser(input: $input, condition: $condition) {
-      id
-      name
-      owner
-      posts {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      status
-    }
-  }
-`;
-export const updateUser = /* GraphQL */ `
-  mutation UpdateUser(
-    $input: UpdateUserInput!
-    $condition: ModelUserConditionInput
-  ) {
-    updateUser(input: $input, condition: $condition) {
-      id
-      name
-      owner
-      posts {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      status
-    }
-  }
-`;
-export const deleteUser = /* GraphQL */ `
-  mutation DeleteUser(
-    $input: DeleteUserInput!
-    $condition: ModelUserConditionInput
-  ) {
-    deleteUser(input: $input, condition: $condition) {
-      id
-      name
-      owner
-      posts {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      status
-    }
-  }
-`;
 export const createUserGame = /* GraphQL */ `
   mutation CreateUserGame(
     $input: CreateUserGameInput!
@@ -89,18 +14,18 @@ export const createUserGame = /* GraphQL */ `
         items {
           id
           name
-          owner
           createdAt
           updatedAt
           status
+          elo
         }
         nextToken
       }
       game {
         items {
           id
-          title
           winner
+          players
           createdAt
           updatedAt
           status
@@ -125,18 +50,18 @@ export const updateUserGame = /* GraphQL */ `
         items {
           id
           name
-          owner
           createdAt
           updatedAt
           status
+          elo
         }
         nextToken
       }
       game {
         items {
           id
-          title
           winner
+          players
           createdAt
           updatedAt
           status
@@ -161,18 +86,18 @@ export const deleteUserGame = /* GraphQL */ `
         items {
           id
           name
-          owner
           createdAt
           updatedAt
           status
+          elo
         }
         nextToken
       }
       game {
         items {
           id
-          title
           winner
+          players
           createdAt
           updatedAt
           status
@@ -191,10 +116,16 @@ export const createGame = /* GraphQL */ `
   ) {
     createGame(input: $input, condition: $condition) {
       id
-      title
+      winner
+      players
+      createdAt
+      updatedAt
+      status
       Moves {
         items {
           id
+          authorId
+          players
           gameId
           content
           createdAt
@@ -203,10 +134,6 @@ export const createGame = /* GraphQL */ `
         }
         nextToken
       }
-      winner
-      createdAt
-      updatedAt
-      status
     }
   }
 `;
@@ -217,10 +144,16 @@ export const updateGame = /* GraphQL */ `
   ) {
     updateGame(input: $input, condition: $condition) {
       id
-      title
+      winner
+      players
+      createdAt
+      updatedAt
+      status
       Moves {
         items {
           id
+          authorId
+          players
           gameId
           content
           createdAt
@@ -229,10 +162,6 @@ export const updateGame = /* GraphQL */ `
         }
         nextToken
       }
-      winner
-      createdAt
-      updatedAt
-      status
     }
   }
 `;
@@ -243,10 +172,16 @@ export const deleteGame = /* GraphQL */ `
   ) {
     deleteGame(input: $input, condition: $condition) {
       id
-      title
+      winner
+      players
+      createdAt
+      updatedAt
+      status
       Moves {
         items {
           id
+          authorId
+          players
           gameId
           content
           createdAt
@@ -255,10 +190,81 @@ export const deleteGame = /* GraphQL */ `
         }
         nextToken
       }
-      winner
+    }
+  }
+`;
+export const createUser = /* GraphQL */ `
+  mutation CreateUser(
+    $input: CreateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    createUser(input: $input, condition: $condition) {
+      id
+      name
+      games {
+        items {
+          id
+          userId
+          gameId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
       status
+      elo
+    }
+  }
+`;
+export const updateUser = /* GraphQL */ `
+  mutation UpdateUser(
+    $input: UpdateUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    updateUser(input: $input, condition: $condition) {
+      id
+      name
+      games {
+        items {
+          id
+          userId
+          gameId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      status
+      elo
+    }
+  }
+`;
+export const deleteUser = /* GraphQL */ `
+  mutation DeleteUser(
+    $input: DeleteUserInput!
+    $condition: ModelUserConditionInput
+  ) {
+    deleteUser(input: $input, condition: $condition) {
+      id
+      name
+      games {
+        items {
+          id
+          userId
+          gameId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+      status
+      elo
     }
   }
 `;
@@ -269,17 +275,19 @@ export const createMove = /* GraphQL */ `
   ) {
     createMove(input: $input, condition: $condition) {
       id
+      authorId
+      players
       gameId
       game {
         id
-        title
-        Moves {
-          nextToken
-        }
         winner
+        players
         createdAt
         updatedAt
         status
+        Moves {
+          nextToken
+        }
       }
       content
       createdAt
@@ -295,17 +303,19 @@ export const updateMove = /* GraphQL */ `
   ) {
     updateMove(input: $input, condition: $condition) {
       id
+      authorId
+      players
       gameId
       game {
         id
-        title
-        Moves {
-          nextToken
-        }
         winner
+        players
         createdAt
         updatedAt
         status
+        Moves {
+          nextToken
+        }
       }
       content
       createdAt
@@ -321,17 +331,19 @@ export const deleteMove = /* GraphQL */ `
   ) {
     deleteMove(input: $input, condition: $condition) {
       id
+      authorId
+      players
       gameId
       game {
         id
-        title
-        Moves {
-          nextToken
-        }
         winner
+        players
         createdAt
         updatedAt
         status
+        Moves {
+          nextToken
+        }
       }
       content
       createdAt
