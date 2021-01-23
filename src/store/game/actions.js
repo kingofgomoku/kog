@@ -3,6 +3,10 @@
 const actions = {
   gameInitializeGameBoard(context, size) {
     context.commit('gameClearGameBoard', size);
+    context.commit('gameUpdateGameLog', {
+      action: 'Game Start',
+      color: 'white'
+    });
   },
   gameUpdateGameBoard(context, move) {
     context.commit('gameUpdateGameBoard', move);

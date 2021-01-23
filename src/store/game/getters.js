@@ -16,6 +16,13 @@ const getters = {
   },
   gameReturnBoardSize(state) {
     return state.boardSize;
+  },
+  gameReturnLatestMove(state) {
+    if (state.movelog.length !== 0) {
+      return state.movelog[state.movelog.length - 1];
+    } else {
+      return false;
+    }
   }
 };
 

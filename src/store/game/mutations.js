@@ -25,8 +25,12 @@ const mutations = {
     state.boardSize.rows = size
     state.boardSize.columns = size
     state.boardSize.size = size
+    state.movelog = []
   },
   gameDeclareWinner(state, player) {
+  },
+  gameUpdateGameLog(state, log) {
+    state.movelog.push(log)
   }
 };
 

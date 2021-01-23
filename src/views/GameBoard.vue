@@ -2,10 +2,11 @@
   <div class="defaultLayout d-flex flex-column align-items-stretch">
     <Header />
     <div class="container-fluid flex-grow-1 d-flex">
-      <div class="ml-auto mr-auto d-flex">
+      <div class="m-auto d-flex">
         <GameContainer />
         <div>
           <Details />
+          <GameDetails />
         </div>
       </div>
     </div>
@@ -18,6 +19,7 @@ import Header from "@/components/Header/SiteHeader";
 import Footer from "@/components/Footer/SiteFooter";
 import GameContainer from "@/components/Board/GameContainer";
 import Details from "@/components/Details/DetailsContainer";
+import GameDetails from "@/components/Details/GameDetails";
 
 export default {
   name: "GameBoard",
@@ -25,7 +27,8 @@ export default {
     Header,
     Footer,
     GameContainer,
-    Details
+    Details,
+    GameDetails
   }
 };
 </script>

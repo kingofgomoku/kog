@@ -17,10 +17,9 @@ library.add(faFileImage, faFileVideo, faEyeSlash, faDesktop, faFile);
 // Twitter
 import {
   faMapMarkerAlt,
-  faUser,
   faCalendarAlt
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faMapMarkerAlt, faUser, faCalendarAlt);
+library.add(faMapMarkerAlt, faCalendarAlt);
 
 // UI
 import {
@@ -36,7 +35,6 @@ import {
   faBars,
   faBell,
   faCheck,
-  faEllipsisV,
   faShareAlt,
   faFilter,
   faList,
@@ -73,7 +71,6 @@ library.add(
   faEnvelope,
   faPen,
   faCopy,
-  faEllipsisV,
   faFilter,
   faList,
   faInfoCircle,
@@ -87,6 +84,17 @@ library.add(
   faGasPump,
   faRss
 );
+
+// User
+import {
+  faUser,
+  faAddressCard,
+  faStar,
+  faDiceD6,
+  faEllipsisV,
+  faCircle
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faUser, faAddressCard, faStar, faDiceD6, faEllipsisV, faCircle);
 
 // brands
 import { faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
