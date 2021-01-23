@@ -102,7 +102,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-kog-dev-220742-deployment",
-          "S3Key": "amplify-builds/kogPostConfirmation-516b69376a4471736a43-build.zip"
+          "S3Key": "amplify-builds/kogPostConfirmation-37785262786178522f71-build.zip"
         }
       }
     },
