@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="photoContainer">
-      <div v-if="imageChecker">
+      <div v-if="!imageChecker">
         <img class="photo" :src="userimage" alt="user image profile" />
       </div>
       <div v-else class="d-flex">
