@@ -7,6 +7,7 @@ const actions = {
       action: 'Game Start',
       color: 'white'
     });
+    context.dispatch('messagingInitializeChatRoom')
   },
   gameUpdateGameBoard(context, move) {
     context.commit('gameUpdateGameBoard', move);

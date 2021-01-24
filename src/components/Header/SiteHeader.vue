@@ -1,5 +1,5 @@
 <template>
-  <div class="container d-flex p-2">
+  <div class="container d-flex p-1">
     <div>
       <SiteLogo />
     </div>

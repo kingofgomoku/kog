@@ -1,7 +1,7 @@
 <template>
   <div class="d-block">
     <div class="d-flex">
-      <div class="structured mt-auto mb-auto">You</div>
+      <div class="structured ml-1 mt-auto mb-auto">You</div>
       <div
         v-for="(win, index) in playerone"
         class=" structured m-auto"
@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="d-flex">
-      <div class="structured mt-auto mb-auto">Opp</div>
+      <div class="structured ml-1 mt-auto mb-auto">Opp</div>
       <div
         v-for="(win, index) in playertwo"
         class="structured m-auto"

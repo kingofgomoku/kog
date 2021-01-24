@@ -32,7 +32,6 @@ import {
   faArrowAltCircleUp,
   faArrowAltCircleDown,
   faCaretSquareLeft,
-  faBars,
   faBell,
   faCheck,
   faShareAlt,
@@ -63,7 +62,6 @@ library.add(
   faArrowAltCircleUp,
   faArrowAltCircleDown,
   faCaretSquareLeft,
-  faBars,
   faShareAlt,
   faBell,
   faCheck,
@@ -92,9 +90,20 @@ import {
   faStar,
   faDiceD6,
   faEllipsisV,
+  faBars,
+  faPenSquare,
   faCircle
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faUser, faAddressCard, faStar, faDiceD6, faEllipsisV, faCircle);
+library.add(
+  faUser,
+  faAddressCard,
+  faStar,
+  faDiceD6,
+  faEllipsisV,
+  faCircle,
+  faPenSquare,
+  faBars
+);
 
 // brands
 import { faTwitter, faFacebook } from "@fortawesome/free-brands-svg-icons";
