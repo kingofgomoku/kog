@@ -7,7 +7,7 @@
         <div class="d-flex flex-column">
           <Details />
           <GameDetails />
-          <Messaging />
+          <Messaging v-if="false" />
         </div>
       </div>
     </div>
