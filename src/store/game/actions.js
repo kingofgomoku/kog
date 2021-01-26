@@ -61,6 +61,7 @@ const actions = {
     }
   },
   gameCheckDiagLineWinner(context, {arrayString, color}) {
+    // diagonal from left to right
     for (let i = 0; i < arrayString.length - 4 ; i++) {
       for(let j = 0; j < arrayString[i].length - 4 ; j++) {
         if(
@@ -75,15 +76,18 @@ const actions = {
         }
       }
     }
-    for (let i = 4; i < arrayString.length; i++) {
-      for(let j = 4; j < arrayString[i].length ; j++) {
+
+    // diagonal from right to left
+    for (let i = 0; i < arrayString.length - 4; i++) {
+      for(let j = 0; j < arrayString[i].length ; j++) {
         if(
+          j >= 4 &&
           arrayString[i].charAt(j) === color &&
           arrayString[i+1].charAt(j-1) === color &&
           arrayString[i+2].charAt(j-2) === color &&
           arrayString[i+3].charAt(j-3) === color &&
           arrayString[i+4].charAt(j-4) === color 
-        ) {
+          ) {
           //declare winner
           console.log(color,' wins')
         }
