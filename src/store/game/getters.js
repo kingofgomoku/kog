@@ -23,6 +23,9 @@ const getters = {
     } else {
       return false;
     }
+  },
+  gameReturnLoading(state) {
+    return state.loading;
   }
 };
 

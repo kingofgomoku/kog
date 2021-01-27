@@ -27,13 +27,22 @@ const routes = [
     component: Login
   },
   {
-    path: "/",
+    path: "/game",
     name: "GameBoard",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/GameBoard.vue")
+  },
+  {
+    path: "/",
+    name: "LandingPage",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/LandingPage.vue")
   },
   {
     path: "/tt",

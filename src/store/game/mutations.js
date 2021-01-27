@@ -31,6 +31,9 @@ const mutations = {
   },
   gameUpdateGameLog(state, log) {
     state.movelog.push(log)
+  },
+  gameUpdateLoading(state, loading) {
+    state.loading = loading
   }
 };
 

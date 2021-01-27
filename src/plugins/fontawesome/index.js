@@ -47,7 +47,6 @@ import {
   faSpinner,
   faThList,
   faTimes,
-  faPlus,
   faHome,
   faGasPump,
   faRss
@@ -77,7 +76,6 @@ library.add(
   faSpinner,
   faThList,
   faTimes,
-  faPlus,
   faHome,
   faGasPump,
   faRss
@@ -91,7 +89,9 @@ import {
   faDiceD6,
   faEllipsisV,
   faBars,
+  faUsers,
   faPenSquare,
+  faPlus,
   faCircle
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
@@ -102,6 +102,8 @@ library.add(
   faEllipsisV,
   faCircle,
   faPenSquare,
+  faPlus,
+  faUsers,
   faBars
 );
 

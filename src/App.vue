@@ -14,7 +14,7 @@ export default {
         {
           rel: "icon",
           type: "image/svg+xml",
-          href: "./assets/Logo.png"
+          href: "./assets/favicon.ico"
         }
       ],
       meta: [

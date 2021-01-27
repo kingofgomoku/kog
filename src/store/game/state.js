@@ -8,7 +8,8 @@ const state = {
   turn: "white",
   winner: null,
   players: [{ profile: {} }, { profile: {} }],
-  movelog: []
+  movelog: [],
+  loading: false
 };
 
 export default state;

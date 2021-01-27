@@ -12,7 +12,8 @@ const actions = {
     context.commit('gameUpdateGameBoard', move);
     context.dispatch('gameCheckGameWinner');
   },
-  gameCheckGameWinner(context) {
+  async gameCheckGameWinner(context) {
+    context.commit('gameUpdateLoading', true)
     let formattedString = context.state.gameboard.map(rows => {
       return rows.map(col => {
         if ( 
@@ -48,6 +49,7 @@ const actions = {
       arrayString: formattedString,
       color: 'b'
     });
+    context.commit('gameUpdateLoading', false)
   },
   gameCheckHorVerLineWinner(context, arrayString) {
     let superString = arrayString.join('x');
