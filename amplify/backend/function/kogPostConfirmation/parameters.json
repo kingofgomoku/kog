@@ -1,5 +1,4 @@
 {
   "modules": "add-to-group",
-  "resourceName": "kogPostConfirmation",
-  "Group": "User"
+  "resourceName": "kogPostConfirmation"
 }
