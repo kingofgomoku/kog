@@ -39,13 +39,13 @@ const actions = {
         }
       }).join('')
     })
-    context.dispatch('gameCheckHorVerLineWinner', formattedString);
-    context.dispatch('gameCheckHorVerLineWinner', transposedFormattedString);
-    context.dispatch('gameCheckDiagLineWinner', {
+    await context.dispatch('gameCheckHorVerLineWinner', formattedString);
+    await context.dispatch('gameCheckHorVerLineWinner', transposedFormattedString);
+    await context.dispatch('gameCheckDiagLineWinner', {
       arrayString: formattedString,
       color: 'w'
     });
-    context.dispatch('gameCheckDiagLineWinner', {
+    await context.dispatch('gameCheckDiagLineWinner', {
       arrayString: formattedString,
       color: 'b'
     });
