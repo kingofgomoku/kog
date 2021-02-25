@@ -1,0 +1,35 @@
+type Tournament
+  @model
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Admin"] }
+      { allow: owner, ownerField: "owner", operations: [read, create, update] }
+      { allow: groups, groups: ["User"], operations: [read] }
+    ]
+  ) {
+  # @key(name: "byName", fields: ["name", "createdAt"])
+  # @key(name: "byStatus", fields: ["status", "createdAt"])
+  id: ID!
+  name: String
+  games: [Game]
+  owner: String!
+  winner: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  status: StatusCreated!
+}
+
+type TourGame
+  @model
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Admin"] }
+      { allow: groups, groups: ["User"], operations: [read, create] }
+    ]
+  )
+  @key(name: "gamesByTour", fields: ["TourId", "gameId"]) {
+  id: ID!
+  gameId: ID!
+  TourId: ID!
+  game: [Game] @connection(fields: ["gameId"])
+}
