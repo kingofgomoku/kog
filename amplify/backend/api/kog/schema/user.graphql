@@ -10,6 +10,7 @@ type User
   @key(name: "byName", fields: ["name", "createdAt"])
   @key(name: "byStatus", fields: ["status", "createdAt"]) {
   id: ID!
+  email: String
   name: String
   games: [UserGame] @connection(keyName: "gamesByUser", fields: ["id"])
   elo: Int
