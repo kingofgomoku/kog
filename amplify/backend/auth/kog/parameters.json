@@ -1,6 +1,6 @@
 {
     "identityPoolName": "kog",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "kogf9d5f942",
     "userPoolName": "kog",
     "autoVerifiedAttributes": [
@@ -50,7 +50,7 @@
     "usernameAttributes": [
         "email"
     ],
-    "userPoolGroups": true,
+    "userPoolGroups": false,
     "adminQueries": true,
     "triggers": "{\n  \"PostConfirmation\": [\n    \"add-to-group\"\n  ]\n}",
     "hostedUI": false,
@@ -76,5 +76,6 @@
                 "Name"
             ]
         }
-    ]
+    ],
+    "authProviders": []
 }

@@ -1,0 +1,9 @@
+enum Status {
+  CREATED
+  DELETED
+}
+
+enum GameStatus {
+  PENDING
+  ENDED
+}

@@ -4,30 +4,20 @@ import Login from "../views/Login.vue";
 
 Vue.use(VueRouter);
 
-// const routes = [
-//   {
-//     path: "/",
-//     name: "Home",
-//     component: Home
-//   },
-//   {
-//     path: "/GameBoard",
-//     name: "GameBoard",
-//     // route level code-splitting
-//     // this generates a separate chunk (about.[hash].js) for this route
-//     // which is lazy-loaded when the route is visited.
-//     component: () =>
-//       import(/* webpackChunkName: "about" */ "../views/GameBoard.vue")
-//   }
-// ];
 const routes = [
+  {
+    path: "/",
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/LandingPage.vue")
+  },
   {
     path: "/login",
     name: "Login",
     component: Login
   },
   {
-    path: "/game",
+    path: "/game/:id",
     name: "GameBoard",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -36,7 +26,7 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/GameBoard.vue")
   },
   {
-    path: "/",
+    path: "/home",
     name: "LandingPage",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -62,7 +52,22 @@ const router = new VueRouter({
 });
 
 // router.beforeEach((to, from, next) => {
-//   // ...
-// })
+//   if (to.matched.some((record) => record.meta.requiresAuth)) {
+//     let user;
+//     Vue.prototype.$Amplify.Auth.currentAuthenticatedUser()
+//       .then((data) => {
+//         if (data && data.signInUserSession) {
+//           user = data;
+//         }
+//         next();
+//       })
+//       .catch((e) => {
+//         next({
+//           path: "/signin",
+//         });
+//       });
+//   }
+//   next();
+// });
 
 export default router;

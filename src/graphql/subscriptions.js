@@ -1,69 +1,78 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser($id: String) {
-    onCreateUser(id: $id) {
+export const onCreateGame = /* GraphQL */ `
+  subscription OnCreateGame($players: String) {
+    onCreateGame(players: $players) {
       id
-      name
-      games {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      winner
+      players
       createdAt
       updatedAt
       status
-      elo
+      Moves {
+        items {
+          id
+          authorId
+          players
+          gameId
+          content
+          createdAt
+          updatedAt
+          status
+        }
+        nextToken
+      }
     }
   }
 `;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser($id: String) {
-    onUpdateUser(id: $id) {
+export const onUpdateGame = /* GraphQL */ `
+  subscription OnUpdateGame($players: String) {
+    onUpdateGame(players: $players) {
       id
-      name
-      games {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      winner
+      players
       createdAt
       updatedAt
       status
-      elo
+      Moves {
+        items {
+          id
+          authorId
+          players
+          gameId
+          content
+          createdAt
+          updatedAt
+          status
+        }
+        nextToken
+      }
     }
   }
 `;
-export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser($id: String) {
-    onDeleteUser(id: $id) {
+export const onDeleteGame = /* GraphQL */ `
+  subscription OnDeleteGame($players: String) {
+    onDeleteGame(players: $players) {
       id
-      name
-      games {
-        items {
-          id
-          userId
-          gameId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
+      winner
+      players
       createdAt
       updatedAt
       status
-      elo
+      Moves {
+        items {
+          id
+          authorId
+          players
+          gameId
+          content
+          createdAt
+          updatedAt
+          status
+        }
+        nextToken
+      }
     }
   }
 `;
@@ -166,78 +175,69 @@ export const onDeleteUserGame = /* GraphQL */ `
     }
   }
 `;
-export const onCreateGame = /* GraphQL */ `
-  subscription OnCreateGame($players: String) {
-    onCreateGame(players: $players) {
+export const onCreateUser = /* GraphQL */ `
+  subscription OnCreateUser($id: String) {
+    onCreateUser(id: $id) {
       id
-      winner
-      players
-      createdAt
-      updatedAt
-      status
-      Moves {
+      name
+      games {
         items {
           id
-          authorId
-          players
+          userId
           gameId
-          content
           createdAt
           updatedAt
-          status
         }
         nextToken
       }
+      createdAt
+      updatedAt
+      status
+      elo
     }
   }
 `;
-export const onUpdateGame = /* GraphQL */ `
-  subscription OnUpdateGame($players: String) {
-    onUpdateGame(players: $players) {
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser($id: String) {
+    onUpdateUser(id: $id) {
       id
-      winner
-      players
-      createdAt
-      updatedAt
-      status
-      Moves {
+      name
+      games {
         items {
           id
-          authorId
-          players
+          userId
           gameId
-          content
           createdAt
           updatedAt
-          status
         }
         nextToken
       }
+      createdAt
+      updatedAt
+      status
+      elo
     }
   }
 `;
-export const onDeleteGame = /* GraphQL */ `
-  subscription OnDeleteGame($players: String) {
-    onDeleteGame(players: $players) {
+export const onDeleteUser = /* GraphQL */ `
+  subscription OnDeleteUser($id: String) {
+    onDeleteUser(id: $id) {
       id
-      winner
-      players
-      createdAt
-      updatedAt
-      status
-      Moves {
+      name
+      games {
         items {
           id
-          authorId
-          players
+          userId
           gameId
-          content
           createdAt
           updatedAt
-          status
         }
         nextToken
       }
+      createdAt
+      updatedAt
+      status
+      elo
     }
   }
 `;

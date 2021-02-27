@@ -1,0 +1,36 @@
+type Game
+  @model
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Admin"] }
+      # { allow: groups, groups: ["User"], operations: [create] }
+      { allow: owner, ownerField: "players" }
+    ]
+  )
+  @key(name: "byCreatedAt", fields: ["status", "createdAt"]) {
+  id: ID!
+  Moves: [Move] @connection(keyName: "byGame", fields: ["id"])
+  winner: ID
+  players: [String!]!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  status: Status!
+}
+
+type UserGame
+## creating many to many relationship between user and game
+  @model
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Admin"] }
+      { allow: groups, groups: ["User"], operations: [read, create] }
+    ]
+  )
+  @key(name: "gamesByUser", fields: ["userId", "gameId"])
+  @key(name: "usersByGame", fields: ["gameId", "userId"]) {
+  id: ID!
+  userId: ID!
+  gameId: ID!
+  user: [User] @connection(fields: ["userId"])
+  game: [Game] @connection(fields: ["gameId"])
+}

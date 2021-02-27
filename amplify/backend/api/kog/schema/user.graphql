@@ -1,0 +1,30 @@
+type User
+  @model #will create a table in DB
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Admin"] }
+      { allow: owner, ownerField: "id", operations: [read, create, update] }
+      { allow: groups, groups: ["User"], operations: [read] }
+    ]
+  )
+  @key(name: "byName", fields: ["name", "createdAt"])
+  @key(name: "byStatus", fields: ["status", "createdAt"]) {
+  id: ID!
+  name: String
+  games: [UserGame] @connection(keyName: "gamesByUser", fields: ["id"])
+  elo: Int
+    @auth(
+      rules: [
+        { allow: groups, groups: ["Admin"] }
+        { allow: groups, groups: ["User"], operations: [read] }
+        {
+          allow: private
+          provider: iam
+          operations: [create, read, update, delete]
+        }
+      ]
+    )
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  status: Status! #exclamation mark means required
+}

@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { API } from 'aws-amplify';
 
 const state = {
   appVersion: "v1.00",

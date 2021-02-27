@@ -1,4 +1,6 @@
 /* eslint-disable */
+import { API } from 'aws-amplify';
+
 const actions = {
   gameInitializeGameBoard(context, size) {
     context.commit('gameClearGameBoard', size);

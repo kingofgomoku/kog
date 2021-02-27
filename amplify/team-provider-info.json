@@ -19,7 +19,8 @@
       "function": {
         "kogPostConfirmation": {
           "deploymentBucketName": "amplify-kog-dev-220742-deployment",
-          "s3Key": "amplify-builds/kogPostConfirmation-37785262786178522f71-build.zip"
+          "s3Key": "amplify-builds/kogPostConfirmation-37785262786178522f71-build.zip",
+          "GROUP": "User"
         }
       }
     }

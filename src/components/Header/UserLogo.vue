@@ -1,9 +1,9 @@
 <template>
-  <div class="ml-auto mr-2 d-flex">
+  <div class="ml-auto d-flex">
     <div class="mr-1">
       <UserImageContainer :userimage="userImage" />
     </div>
-    <div class="mt-auto mb-auto">
+    <div v-if="false" class="mt-auto mb-auto">
       <font-awesome-icon :icon="['fa', 'bars']" fixed-width />
     </div>
   </div>

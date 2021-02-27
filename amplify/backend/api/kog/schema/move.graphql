@@ -1,0 +1,24 @@
+type Move
+  @model
+  @auth(
+    rules: [
+      { allow: groups, groups: ["Admin"] }
+      {
+        allow: private
+        provider: iam
+        operations: [create, read, update, delete]
+      }
+      { allow: owner, ownerField: "players", operations: [read] }
+    ]
+  )
+  @key(name: "byGame", fields: ["gameId", "createdAt"]) {
+  id: ID!
+  authorId: String!
+  players: [String!]!
+  gameId: ID!
+  game: Game @connection(fields: ["gameId"])
+  content: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  status: Status!
+}
