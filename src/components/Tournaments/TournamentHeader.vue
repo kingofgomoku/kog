@@ -1,34 +1,36 @@
 <template>
-  <div class="d-flex pl-2 pr-2">
-    <CLinkButton
-      v-if="false"
-      class="mt-auto mb-auto"
-      text="My Tournament"
-      :class="{ selected: session === 'mytournament' }"
-      @onClick="changeState('mytournament')"
-    />
-    <div v-if="false" class="divider background-primary ml-2 mr-2"></div>
-    <CLinkButton
-      v-if="false"
-      class="mt-auto mb-auto"
-      text="Tournaments"
-      :class="{ selected: session === 'tournaments' }"
-      @onClick="changeState('tournaments')"
-    />
-    <CButton
-      class="ml-auto"
-      :class="{ selected: session === 'create' }"
-      text="Create"
-      :icon="['fas', 'plus']"
-      @onClick="changeState('create')"
-    />
-    <CButton
-      text="Join"
-      :class="{ selected: session === 'join' }"
-      :icon="['fas', 'users']"
-      @onClick="changeState('join')"
-    />
-  </div>
+  <b-container>
+    <div class="d-flex">
+      <CLinkButton
+        v-if="false"
+        class="mt-auto mb-auto"
+        text="My Tournament"
+        :class="{ selected: session === 'mytournament' }"
+        @onClick="changeState('mytournament')"
+      />
+      <div v-if="false" class="divider background-primary ml-2 mr-2"></div>
+      <CLinkButton
+        v-if="false"
+        class="mt-auto mb-auto"
+        text="Tournaments"
+        :class="{ selected: session === 'tournaments' }"
+        @onClick="changeState('tournaments')"
+      />
+      <CButton
+        class="ml-auto"
+        :class="{ selected: session === 'create' }"
+        text="Create"
+        :icon="['fas', 'plus']"
+        @onClick="changeState('create')"
+      />
+      <CButton
+        text="Join"
+        :class="{ selected: session === 'join' }"
+        :icon="['fas', 'users']"
+        @onClick="changeState('join')"
+      />
+    </div>
+  </b-container>
 </template>
 
 <script>

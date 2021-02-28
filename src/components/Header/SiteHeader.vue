@@ -1,15 +1,19 @@
 <template>
-  <div class="container d-flex p-1">
-    <div>
-      <SiteLogo />
+  <b-container>
+    <div class="d-flex py-1">
+      <div>
+        <SiteLogo />
+      </div>
+      <UserLogo />
+      <div @click="signout">Signout</div>
     </div>
-    <UserLogo />
-  </div>
+  </b-container>
 </template>
 
 <script>
 import SiteLogo from "@/components/Header/SiteLogo";
 import UserLogo from "@/components/Header/UserLogo";
+import { mapGetters } from "vuex";
 
 export default {
   name: "SiteHeader",
@@ -21,6 +25,17 @@ export default {
     return {
       key: true
     };
+  },
+  computed: {
+    ...mapGetters({
+      user: "userGetUser"
+    })
+  },
+  methods: {
+    signout() {
+      this.$store.dispatch("userSignOut");
+      this.$router.push("/");
+    }
   }
 };
 </script>

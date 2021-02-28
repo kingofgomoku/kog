@@ -1,32 +1,59 @@
 <template>
-  <div v-if="displaySession" class="text-font-light p-1 position-relative">
-    <form class="fluid" @submit.prevent="createGame">
-      <div class="configuration">
-        <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname" /><br /><br />
-        <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname" /><br /><br />
-        <input type="submit" value="Submit" />
-      </div>
-      <div class="gameDisplay"></div>
-      <CButtonAlt
-        class="buttonPlacement"
-        text="Create"
-        :icon="['fas', 'plus']"
-        @onClick="changeState('create')"
-      />
-    </form>
-  </div>
+  <b-container
+    v-if="displaySession"
+    class="text-font-light p-1 position-relative"
+  >
+    <b-row>
+      <b-col cols class="d-flex flex-column align-items-stretch">
+        <b-container class="mt-4">
+          <b-form @submit.prevent="createGame">
+            <b-form-group label="Board Size" v-slot="{ ariaDescribedby }">
+              <b-form-radio
+                v-model="boardSizeSelected"
+                :aria-describedby="ariaDescribedby"
+                name="15"
+                :value="15"
+                >15 x 15</b-form-radio
+              >
+              <b-form-radio
+                v-model="boardSizeSelected"
+                :aria-describedby="ariaDescribedby"
+                name="19"
+                :value="19"
+                >19 x 19</b-form-radio
+              >
+            </b-form-group>
+          </b-form>
+        </b-container>
+        <CButtonAlt
+          class="text-center mt-auto buttonPlacement"
+          text="Create"
+          :icon="['fas', 'plus']"
+          @onClick="changeState('create')"
+        />
+      </b-col>
+      <b-col cols>
+        <ChessBoardDisplay :boardsize="boardSizeSelected - 1" />
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import CButtonAlt from "@/layout/Button/ButtonAlt";
+import ChessBoardDisplay from "@/components/Board/ChessBoardDisplay";
 
 export default {
   name: "TournamentCreateContainer",
   components: {
-    CButtonAlt
+    CButtonAlt,
+    ChessBoardDisplay
+  },
+  data() {
+    return {
+      boardSizeSelected: 15
+    };
   },
   computed: {
     ...mapGetters({
@@ -43,18 +70,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.fluid {
-  width: auto;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: 1rem 0;
-}
-.buttonPlacement {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-}
-</style>

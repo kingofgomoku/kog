@@ -68,3 +68,16 @@
     background-image: url("../assets/board/chess-b.png");
   }
 }
+.chessDisplay {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background-position: center center;
+  background-size: cover;
+  &.white {
+    background-image: url("../assets/board/chess-w.png");
+  }
+  &.black {
+    background-image: url("../assets/board/chess-b.png");
+  }
+}

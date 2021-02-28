@@ -12,6 +12,7 @@ const mutations = {
     state.movelog.push(move)
     
     state.gameboard[move.row][move.column] = move
+    console.log(state.gameboard)
   },
   gameClearGameBoard(state, size) {
     state.gameboard = [];

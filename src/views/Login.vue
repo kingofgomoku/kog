@@ -16,17 +16,36 @@
 </template>
 
 <script>
-import { onAuthUIStateChange, AuthStatus } from "@aws-amplify/ui-components";
+import { onAuthUIStateChange } from "@aws-amplify/ui-components";
 
 export default {
   name: "Login",
   created() {
     onAuthUIStateChange((authState, authData) => {
-      this.authState = authState;
-      this.user = authData;
-      if (authState === AuthStatus.SignedIn) {
-        console.log("user successfully signed in!");
+      // this.authState = authState;
+      // this.user = authData;
+      console.log("authData", authState, authData);
+      if (authState === "signedin") {
+        console.log("user signedin!", authState, authData);
+        this.$store.dispatch("userGet", authData);
         this.$router.push("/home");
+      }
+      if (authState === "signedout") {
+        console.log("user signedout!", authState, authData);
+        // this.$router.push("/login");
+      }
+      if (authState === "confirmSignUp") {
+        console.log("user confirmSignUp!", authState, authData);
+        // this.$store.dispatch("userCreate", authData);
+        // this.$router.push("/home");
+      }
+      if (authState === "confirmSignIn") {
+        console.log("user confirmSignIn", authState, authData);
+        // this.$router.push("/home");
+      }
+      if (authState === "forgotpassword") {
+        console.log("user forgotpassword", authState, authData);
+        // this.$router.push("/home");
       }
       if (!authData) {
         console.log("user is not signed in");
@@ -45,7 +64,7 @@ export default {
           required: true
         },
         {
-          type: "username",
+          type: "name",
           label: "IGN - In Game Name",
           placeholder: "TheLegend27",
           required: true
@@ -58,12 +77,6 @@ export default {
         }
       ]
     };
-  },
-  beforeDestroy() {
-    return onAuthUIStateChange;
-  },
-  mounted() {
-    console.log("AUTH STATE", this.authState !== "signedin", this.authState);
   }
 };
 </script>

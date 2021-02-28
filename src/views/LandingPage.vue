@@ -2,12 +2,16 @@
   <div class="defaultLayout d-flex flex-column align-items-stretch">
     <Header />
     <TournamentHeader />
-    <div class="flex-grow-1 d-block background-primary mt-2 mb-2 ml-3 mr-3">
-      <TournamentJoinContainer />
-      <TournamentListContainer />
-      <TournamentDisplayContainer />
-      <TournamentCreateContainer />
-    </div>
+    <b-container
+      class="flex-grow-1 d-block background-primary mt-2 mb-2 d-flex"
+    >
+      <div class="m-auto">
+        <TournamentJoinContainer />
+        <TournamentListContainer />
+        <TournamentDisplayContainer />
+        <TournamentCreateContainer />
+      </div>
+    </b-container>
     <Footer />
   </div>
 </template>
