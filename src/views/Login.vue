@@ -21,7 +21,7 @@ import { onAuthUIStateChange } from "@aws-amplify/ui-components";
 export default {
   name: "Login",
   created() {
-    onAuthUIStateChange((authState, authData) => {
+    this.unsubscribeAuth = onAuthUIStateChange((authState, authData) => {
       // this.authState = authState;
       // this.user = authData;
       console.log("authData", authState, authData);
@@ -29,10 +29,6 @@ export default {
         console.log("user signedin!", authState, authData);
         this.$store.dispatch("userGet", authData);
         this.$router.push("/home");
-      }
-      if (authState === "signedout") {
-        console.log("user signedout!", authState, authData);
-        // this.$router.push("/login");
       }
       if (authState === "confirmSignUp") {
         console.log("user confirmSignUp!", authState, authData);
@@ -77,6 +73,9 @@ export default {
         }
       ]
     };
+  },
+  beforeDestroy() {
+    this.unsubscribeAuth();
   }
 };
 </script>
