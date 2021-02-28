@@ -1,9 +1,7 @@
 /* eslint-disable-line */ const aws = require('aws-sdk');
 
 exports.handler = async (event, context, callback) => {
-  const cognitoidentityserviceprovider = new aws.CognitoIdentityServiceProvider(
-    { apiVersion: '2016-04-18' }
-  );
+  const cognitoidentityserviceprovider = new aws.CognitoIdentityServiceProvider({ apiVersion: '2016-04-18' });
   const groupParams = {
     GroupName: process.env.GROUP,
     UserPoolId: event.userPoolId,
@@ -22,9 +20,7 @@ exports.handler = async (event, context, callback) => {
   }
 
   try {
-    await cognitoidentityserviceprovider
-      .adminAddUserToGroup(addUserParams)
-      .promise();
+    await cognitoidentityserviceprovider.adminAddUserToGroup(addUserParams).promise();
     callback(null, event);
   } catch (e) {
     callback(e);

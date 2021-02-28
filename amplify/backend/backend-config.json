@@ -51,17 +51,7 @@
     "kogPostConfirmation": {
       "build": true,
       "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "kog",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput"
-          ]
-        }
-      ]
+      "service": "Lambda"
     },
     "InsertMoveFn": {
       "build": true,
