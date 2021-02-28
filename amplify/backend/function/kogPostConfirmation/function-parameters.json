@@ -14,5 +14,14 @@
   "skipEdit": true,
   "GROUP": "User",
   "enableCors": false,
-  "triggerEventPath": "PostConfirmation.event.json"
+  "triggerEventPath": "PostConfirmation.event.json",
+  "permissions": {
+    "api": {
+      "kog": [
+        "create",
+        "read",
+        "update"
+      ]
+    }
+  }
 }
