@@ -3,7 +3,13 @@
     v-if="displaySession"
     class="text-font-light p-1 position-relative"
   >
-    <b-row>
+    <b-row v-if="creating">
+      <b-col>
+        <div class="mb-3">Creating</div>
+        <div><b-spinner variant="success" label="Spinning"></b-spinner></div>
+      </b-col>
+    </b-row>
+    <b-row v-else>
       <b-col cols class="d-flex flex-column align-items-stretch">
         <b-container class="mt-4">
           <b-form @submit.prevent="createGame">
@@ -29,7 +35,7 @@
           class="text-center mt-auto buttonPlacement"
           text="Create"
           :icon="['fas', 'plus']"
-          @onClick="changeState('create')"
+          @onClick="createGame"
         />
       </b-col>
       <b-col cols>
@@ -43,6 +49,7 @@
 import { mapGetters } from "vuex";
 import CButtonAlt from "@/layout/Button/ButtonAlt";
 import ChessBoardDisplay from "@/components/Board/ChessBoardDisplay";
+import { v4 as uuidv4 } from "uuid";
 
 export default {
   name: "TournamentCreateContainer",
@@ -52,7 +59,8 @@ export default {
   },
   data() {
     return {
-      boardSizeSelected: 15
+      boardSizeSelected: 15,
+      creating: false
     };
   },
   computed: {
@@ -65,7 +73,11 @@ export default {
   },
   methods: {
     createGame() {
-      // Game has been created
+      this.creating = true;
+      this.$store.dispatch("gameInitializeGameBoard", {
+        size: this.boardSizeSelected,
+        id: uuidv4()
+      });
     }
   }
 };

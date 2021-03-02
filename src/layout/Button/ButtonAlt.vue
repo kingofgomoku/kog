@@ -1,7 +1,7 @@
 <template>
   <div
     @click="onClick"
-    class="tournamentButton background-white text-font-dark ml-2 cursor-pointer"
+    class="tournamentButton background-white text-font-dark cursor-pointer"
   >
     {{ text }}
     <font-awesome-icon class="ml-1" :icon="icon" fixed-width />

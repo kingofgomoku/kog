@@ -43,9 +43,6 @@ export default {
       return !!this.gomokuBoard;
     }
   },
-  mounted() {
-    this.$store.dispatch("gameInitializeGameBoard", this.boardSize.size);
-  },
   methods: {
     computedClass(row, column) {
       let className = "";

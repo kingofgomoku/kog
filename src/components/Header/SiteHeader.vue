@@ -4,8 +4,13 @@
       <div>
         <SiteLogo />
       </div>
-      <UserLogo />
-      <div @click="signout">Signout</div>
+      <UserLogo v-if="false" />
+      <div class="ml-auto my-auto">
+        <b-badge variant="primary" class="mr-3">{{
+          user.data.getUser.name
+        }}</b-badge>
+        <b-badge variant="danger" @click="signout">Signout</b-badge>
+      </div>
     </div>
   </b-container>
 </template>
